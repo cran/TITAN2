@@ -1,4 +1,26 @@
-Version 2.0
+Version 2.2
+-------------------------------------------------------------------------
+
+NEW FEATURES
+
+* TITAN2 is now more or less tidyverse compliant; it imports the tidyverse
+  packages dplyr and ggplot2.
+*
+
+CHANGES
+
+* titan now issues messages with message().
+* vignette name changed from glades.TITAN to titan2-intro.
+
+FIXES
+
+*
+*
+
+
+
+
+Version 2.1
 -------------------------------------------------------------------------
 
 Package first posted to CRAN.
