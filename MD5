@@ -1,9 +1,9 @@
-fd417be61f81ae0c5b7f98dd334a7ca2 *DESCRIPTION
+22b3a339677cf57aac1820dc301c8e3a *DESCRIPTION
 3c3d6a1526142ae1ad2abf8a07d5b14d *NAMESPACE
 b1415bbf3666122dd62ae6207d0d0ddf *NEWS
-6c4fe6e456343b4a0d4f7c1e17e08f49 *NEWS.md
+a09c7ba7189fff3da5b1299a7962e48a *NEWS.md
 4e6859617521e78c0bdb2a5e4211c655 *R/TITAN2.R
-f4aff22ea885214cf0f026b677edcb6a *R/boot.functions.R
+9b1d09f48aefa1644c92a956d1054a68 *R/boot.functions.R
 aba3e1284d5b15453ea343d489609916 *R/control.functions.R
 3df244bd466dfc2aa3b6e6372e25edc8 *R/core.functions.R
 3a16b666846d0bf9e8a749a14a7bd844 *R/data.R
@@ -11,10 +11,10 @@ aba3e1284d5b15453ea343d489609916 *R/control.functions.R
 2acbeb5cbb3a579b50821ab14db66d0a *R/plot_sumz.R
 211b32f1eb8d2ea8edfe866ce14a9a47 *R/plot_sumz_density.R
 160c8484dad7db7f8f7b680e9cb7ae0f *R/plot_taxa.R
-6b398583bd632e45037ba8036d037c2f *R/plot_taxa_ridges.R
+d2c02c196829204095b5245ebd13a73f *R/plot_taxa_ridges.R
 67604d916e0021a6e31312f46eefe492 *R/titan.R
-103e63ea8f4894972f5c08e78859e34e *README.md
-28eb3eae9ade5bf239ab750deea0003c *build/vignette.rds
+70f1cf3c089b28ba150560162786288b *README.md
+6d724aa012c1bfcd458b1f786a3b7020 *build/vignette.rds
 f9cd27ad8630d635a8b0383b4fa96566 *data/glades.env.rda
 50029de121e673b896015fc7bc658e99 *data/glades.taxa.rda
 e6e1ad6315ff4bf7d5f69f3b7326a832 *data/glades.titan.rda
@@ -36,7 +36,7 @@ e084aaa65278b59c1944dbde868c2179 *man/indvalp.Rd
 2bc4386a8dfa64e12c0b688fbc1a1bb6 *man/plot-cps.Rd
 08d872c5e7ea2c2858668c3ec36966e5 *man/plot-sumz.Rd
 6f03721c982c211ea6a3589f88e57f09 *man/plot-taxa.Rd
-f82393ab5366835c9e6c5b061239f165 *man/plot_sumz_density.Rd
+8b9ddf78ba1bb891149133d2b12a7ceb *man/plot_sumz_density.Rd
 d9d8da14bb9fa8151443017ed9e04e14 *man/plot_taxa_ridges.Rd
 3edf21a7d8866a028018ff887ebe78ed *man/smallBigBoot.Rd
 95929b4306f962ae0686232a795f5e9c *man/sumz.tab.Rd
@@ -44,4 +44,4 @@ d9d8da14bb9fa8151443017ed9e04e14 *man/plot_taxa_ridges.Rd
 cc54547f178c15504a0573e9c094d358 *man/titan.Rd
 b5cba35ad27e61e0cf11d13b4f8e98d8 *man/txa.screen.Rd
 0970d4c338ba19b03bd1eead894c3fe7 *vignettes/titan2-intro.Rmd
-082ec7b2f240148a5b2ace7bf8868dc1 *vignettes/titan2-intro.html
+03749ee1360321e7523f68ebbdb600b6 *vignettes/titan2-intro.html
