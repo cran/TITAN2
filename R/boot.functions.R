@@ -38,7 +38,7 @@
 #'   be determined by IndVal maxima or z-score maxima (as in Baker and King
 #'   2010). The default is to pass on the argument from the original TITAN
 #'   funtion call.
-#' @return A list of four elements: \itemize{
+#' @return A list of four elements: \describe{
 #'
 #'   \item{bt.metrics}{A matrix with nrow equal to number of taxa where the
 #'   first column is the bootstrapped IndVal or z score maximum, the second is
@@ -62,7 +62,8 @@
 #' @keywords TITAN bootstrap
 tboot <- function(bSeq, env, taxa, ivTot = ivTot, minSplt = minSplt, nPerm = nPerm, memory = memory, imax = imax) {
 
-  message(bSeq, ".. ", appendLF = FALSE)
+  # below was replaced by the progress bar
+  # cli_alert_info("{bSeq}.. ")
 
   # create empty arrays for storing sum(z-) and sum(z+) across envcls by replicate
   boot.metrics <- rep(NA, length(bSeq))
@@ -205,7 +206,7 @@ tboot <- function(bSeq, env, taxa, ivTot = ivTot, minSplt = minSplt, nPerm = nPe
 #'   default is to pass on the argument from the original TITAN funtion call.
 #' @param numUnit An argument specifying the number of values along the
 #'   environmental gradient.
-#' @return A list of two items: \itemize{
+#' @return A list of two items: \describe{
 #'
 #'   \item{bSeq}{An index of the sequence of bootstrap replicates. The structure
 #'   of bSeq will differ for sequential or parallel processing.}
@@ -226,9 +227,9 @@ boot.titan <- function(env, taxa, ivTot = ivTot, boot = boot, ncpus = ncpus,
 
   # if multiple cores are available, take advantage of parallel processing
   if (ncpus > 1) {
-    message(glue::glue("Bootstrap resampling in parallel using {ncpus} CPUs... no index will be printed to screen."))
+    cli_alert_info("Bootstrap resampling in parallel using {ncpus} CPUs... no index will be printed to screen.")
     # if (ncpus > nBoot) {
-    #   message(glue("Decreasing number of CPUs to number of bootstrap replicates ({nBoot})."))
+    #   cli_alert_info("Decreasing number of CPUs to number of bootstrap replicates ({nBoot}).")
     #   ncpus <- nBoot
     # }
     # cl <- parallel::makeCluster(rep("localhost", ncpus), type = "SOCK")
@@ -238,9 +239,16 @@ boot.titan <- function(env, taxa, ivTot = ivTot, boot = boot, ncpus = ncpus,
     parallel::stopCluster(cl)
   } else {
     # otherwise run bootstrap in sequence
-    message("Bootstrap resampling in sequence...")
+    cli_alert_info("Bootstrap resampling in sequence...")
     bSeq <- 0
-    ivz.bt.list = lapply(1:nBoot, tboot, env = env, taxa = taxa, ivTot = ivTot, minSplt = minSplt, nPerm = nPerm, memory = memory, imax = imax)
+    # ivz.bt.list = lapply(1:nBoot, tboot, env = env, taxa = taxa, ivTot = ivTot, minSplt = minSplt, nPerm = nPerm, memory = memory, imax = imax)
+    cli_progress_bar("Resampling", total = nBoot)
+    ivz.bt.list <- vector(mode = "list", length = nBoot)
+    for (i in 1:nBoot) {
+      ivz.bt.list[[i]] <- tboot(i, env = env, taxa = taxa, ivTot = ivTot, minSplt = minSplt, nPerm = nPerm, memory = memory, imax = imax)
+      cli_progress_update()
+    }
+    cli_progress_done()
   }
 
   list(bSeq, ivz.bt.list)
@@ -327,7 +335,7 @@ boot.titan <- function(env, taxa, ivTot = ivTot, boot = boot, ncpus = ncpus,
 #' @param minSplt An argument specifying minimum split size of partitioning
 #'   along the environmental gradient.  The default is to use the value
 #'   specified in the original TITAN function call.
-#' @return A list of six items: \itemize{
+#' @return A list of six items: \describe{
 #'
 #'   \item{sppSub1}{A vector of taxon index numbers for pure and reliable
 #'   decreasers}

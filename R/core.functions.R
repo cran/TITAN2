@@ -446,7 +446,7 @@ permiv <- function(grp, spp, ivTot = ivTot, nPerm = 250) {
 #'   \code{[1:numTxa,]}, the second from \code{[(numTxa+1):(2*numTxa),]}, etc.),
 #'   the first two of which include indicator direction and z scores.
 #'
-#'   \itemize{
+#'   \describe{
 #'
 #'   \item{Group Membership }{A vector for every taxon showing decreasing
 #'   (\code{1}) or increasing (\code{2}) group membership at each value of
@@ -476,18 +476,18 @@ getivz <- function(clss, spp, ivTot = ivTot, nPerm = nPerm, numClass = numClass,
 
   numTxa <- ncol(spp)
   numUnit <- nrow(spp)
-  if (messaging) message("Calculating observed IndVal maxima and class values...")
+  if (messaging) cli_alert_info("Calculating observed IndVal maxima and class values...")
 
   # observed IndVal maxima and class values
   if (ivTot) {
-    if (messaging) message("Calculating IndVals using total relative abundance...")
+    if (messaging) cli_alert_info("Calculating IndVals using total relative abundance...")
     obs <- apply(clss, 2, indvals, spp = spp)
   } else {
-    if (messaging) message("Calculating IndVals using mean relative abundance...")
+    if (messaging) cli_alert_info("Calculating IndVals using mean relative abundance...")
     obs <- apply(clss, 2, indval, spp = spp)
   }
 
-  if (messaging) message("Permuting IndVal scores...")
+  if (messaging) cli_alert_info("Permuting IndVal scores...")
 
   # permuted IndVal scores
   # spp <- as.matrix(spp)

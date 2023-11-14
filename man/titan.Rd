@@ -61,7 +61,7 @@ more than 400 sampling sites and less than 100 taxa).}
 \item{messaging}{If \code{TRUE}, provide progress messages.}
 }
 \value{
-A list with 13 items: \itemize{
+A list with 13 items: \describe{
 
 \item{sppmax}{Description of 'comp1'}
 
@@ -124,7 +124,7 @@ str(glades.titan, give.attr = FALSE)
 if (FALSE) {
 glades.titan <- titan(glades.env, glades.taxa, minSplt = 5,
   numPerm = 250, boot = TRUE, nBoot = 100, imax = FALSE,
-  ivTot = FALSE, pur.cut = 0.95, rel.cut = 0.95, ncpus = 7, memory = FALSE
+  ivTot = FALSE, pur.cut = 0.95, rel.cut = 0.95, ncpus = 1, memory = FALSE
 )
 }
 
